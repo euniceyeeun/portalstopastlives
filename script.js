@@ -1,6 +1,6 @@
 const container = document.getElementById('main-container');
 const videos = [];
-const videoCount = 7;
+const videoCount = 124;
 
 for (let i = 1; i <= videoCount;i++) {
   videos.push(i);
@@ -19,6 +19,9 @@ function shuffleArray(arr) {
   return arr;
 }
 
+const observer = lozad();
+observer.observe();
+
 for (let i = 0; i < videoCount; i++) {
 
     const video = document.createElement('video');
@@ -26,6 +29,7 @@ for (let i = 0; i < videoCount; i++) {
     video.autoplay = true;
     video.muted = true;
     video.loop = true;
+    // video.preload = 'none';
 
     video.addEventListener("mouseover", () => {
       video.muted = false;
@@ -36,9 +40,13 @@ for (let i = 0; i < videoCount; i++) {
     });
 
     const source = document.createElement('source');
-    source.setAttribute('src', `assets/${videos[i]}.mp4`);
+    source.setAttribute('data-src', `assets/${videos[i]}.mp4`);
     source.setAttribute('type', 'video/mp4');
 
+    video.classList.add('lozad');
     video.appendChild(source);
     container.appendChild(video);
+    video.setAttribute("data-loaded" , "false");
+    observer.observe();
+
 }
