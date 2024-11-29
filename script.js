@@ -33,9 +33,7 @@ for (let i = 0; i < videoCount; i++) {
 
     video.addEventListener("mouseover", () => {
       video.muted = false;
-    });for (var i = 0; i < array.length; i++) {
-      array[i]
-    }
+    });
 
     video.addEventListener("mouseout", () => {
       video.muted = true;
