@@ -18,6 +18,8 @@ function hideInfo() {
 const introvid = document.getElementById('intro-video');
 const introContainer = document.getElementById('intro-container');
 const mainContainer = document.getElementById('main-container');
+
+logo.addEventListener("click",introFade);
 introvid.addEventListener("click",introFade);
 
 function introFade() {
