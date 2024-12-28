@@ -1,3 +1,39 @@
+const q = document.getElementById('q');
+const logo = document.getElementById('logo');
+const info = document.getElementById('info');
+
+q.addEventListener("mouseover",showInfo);
+q.addEventListener("mouseout",hideInfo);
+
+function showInfo() {
+  logo.style.display="none";
+  info.style.display="block";
+}
+
+function hideInfo() {
+  info.style.display="none";
+  logo.style.display="flex";
+}
+
+const introvid = document.getElementById('intro-video');
+const introContainer = document.getElementById('intro-container');
+const mainContainer = document.getElementById('main-container');
+introvid.addEventListener("click",introFade);
+
+function introFade() {
+  introContainer.style.opacity="0";
+}
+
+introContainer.addEventListener("transitionend", () => {
+  introContainer.style.display="none";
+  mainContainer.style.display="grid";
+  setTimeout(mainFade,100);
+});
+
+function mainFade() {
+  mainContainer.style.opacity="1";
+}
+
 const container = document.getElementById('main-container');
 const videos = [];
 const videoCount = 125;
