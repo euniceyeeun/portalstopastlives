@@ -27,12 +27,14 @@ function introFade() {
 }
 
 introContainer.addEventListener("transitionend", () => {
+  console.log("switch display");
   introContainer.style.display="none";
   mainContainer.style.display="grid";
   setTimeout(mainFade,100);
 });
 
 function mainFade() {
+  console.log("fading in");
   mainContainer.style.opacity="1";
 }
 
