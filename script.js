@@ -18,20 +18,30 @@ function hideInfo() {
 const introvid = document.getElementById('intro-video');
 const introContainer = document.getElementById('intro-container');
 const mainContainer = document.getElementById('main-container');
+const loadingmsg = document.getElementById('msg');
 
 logo.addEventListener("click",introFade);
 introvid.addEventListener("click",introFade);
 
 function introFade() {
   introContainer.style.opacity="0";
+  setTimeout(() => {
+    loadingmsg.style.opacity="1";
+  },1000);
 }
 
 introContainer.addEventListener("transitionend", () => {
   console.log("switch display");
   introContainer.style.display="none";
   mainContainer.style.display="grid";
-  setTimeout(mainFade,100);
+  setTimeout(checkTwenty,1000);
 });
+
+function checkTwenty() {
+  console.log("checking 20th vid load");
+  let vidtwenty = document.getElementsByClassName('lozad')[19];
+  vidtwenty.addEventListener('loadeddata',mainFade);
+}
 
 function mainFade() {
   console.log("fading in");

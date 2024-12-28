@@ -72,7 +72,7 @@ body {
     }
 
     #logo-subtitle {
-      font-style: normal;
+      font-size:1em;
     }
 
   #info {
@@ -125,6 +125,26 @@ body {
   transition:opacity 2s;
 }
 
-#main-container video {
-  width:100%;
+  #main-container video {
+    width:100%;
+  }
+
+#loading {
+  position:absolute;
+  top:0;
+  width:100vw;
+  height:100vh;
+  z-index:-1;
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content:center;
+  align-items:center;
+  font-family:"Arial", sans-serif;
+  font-size:0.7em;
+  color:#FFF;
 }
+
+  #msg {
+    opacity:0;
+    transition:opacity 0.5s;
+  }
