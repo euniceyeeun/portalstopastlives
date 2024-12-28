@@ -1,6 +1,6 @@
 const container = document.getElementById('main-container');
 const videos = [];
-const videoCount = 124;
+const videoCount = 125;
 
 for (let i = 1; i <= videoCount;i++) {
   videos.push(i);
