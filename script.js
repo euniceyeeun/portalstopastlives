@@ -31,20 +31,18 @@ function introFade() {
 }
 
 introContainer.addEventListener("transitionend", () => {
-  console.log("switch display");
   introContainer.style.display="none";
   mainContainer.style.display="grid";
   setTimeout(checkTwenty,1000);
 });
 
+// checking if 20th video loaded
 function checkTwenty() {
-  console.log("checking 20th vid load");
   let vidtwenty = document.getElementsByClassName('lozad')[19];
   vidtwenty.addEventListener('loadeddata',mainFade);
 }
 
 function mainFade() {
-  console.log("fading in");
   mainContainer.style.opacity="1";
 }
 
