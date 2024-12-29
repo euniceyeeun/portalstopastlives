@@ -127,6 +127,7 @@ body {
 
   #main-container video {
     width:100%;
+    transition:opacity 1s;
   }
 
 #loading {

@@ -38,11 +38,15 @@ introContainer.addEventListener("transitionend", () => {
 
 // checking if 20th video loaded
 function checkTwenty() {
-  let vidtwenty = document.getElementsByClassName('lozad')[19];
-  vidtwenty.addEventListener('loadeddata',mainFade);
+  console.log("checkTwenty");
+  let vidTwenty = document.getElementsByClassName('lozad')[19];
+  if (vidTwenty.readyState==4) {
+    mainFade();
+  }
 }
 
 function mainFade() {
+  console.log("mainFade");
   mainContainer.style.opacity="1";
 }
 
@@ -92,9 +96,24 @@ for (let i = 0; i < videoCount; i++) {
     source.setAttribute('type', 'video/mp4');
 
     video.classList.add('lozad');
+    video.style.opacity = 0;
+
     video.appendChild(source);
     container.appendChild(video);
     video.setAttribute("data-loaded" , "false");
     observer.observe();
 
+}
+
+let allVideos = document.getElementsByClassName('lozad');
+
+for (let i = 0; i < videoCount; i++) {
+  allVideos[i].addEventListener('loadeddata',function() {
+    setTimeout(fadeInVideo(i),1000);
+  })
+}
+
+function fadeInVideo(i) {
+  let video = allVideos[i];
+  video.style.opacity = 1;
 }
