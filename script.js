@@ -40,6 +40,7 @@ introContainer.addEventListener("transitionend", () => {
 function checkTwenty() {
   console.log("checkTwenty");
   let vidTwenty = document.getElementsByClassName('lozad')[19];
+  console.log(vidTwenty.readyState);
   if (vidTwenty.readyState==4) {
     mainFade();
   }
