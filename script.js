@@ -33,18 +33,8 @@ function introFade() {
 introContainer.addEventListener("transitionend", () => {
   introContainer.style.display="none";
   mainContainer.style.display="grid";
-  setTimeout(checkTwenty,1000);
+  setTimeout(mainFade,1000);
 });
-
-// checking if 20th video loaded
-function checkTwenty() {
-  console.log("checkTwenty");
-  let vidTwenty = document.getElementsByClassName('lozad')[19];
-  console.log(vidTwenty.readyState);
-  if (vidTwenty.readyState==4) {
-    mainFade();
-  }
-}
 
 function mainFade() {
   console.log("mainFade");
