@@ -100,7 +100,7 @@ let allVideos = document.getElementsByClassName('lozad');
 
 for (let i = 0; i < videoCount; i++) {
   allVideos[i].addEventListener('loadeddata',function() {
-    setTimeout(fadeInVideo(i),1000);
+    setTimeout(fadeInVideo(i),500);
   })
 }
 
